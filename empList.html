@@ -1,0 +1,39 @@
+<template>
+	<lightning-card title="Employees" icon-name="custom:custom15">
+		<div class="slds-card__body_inner">
+			<!-- Start bear list -->
+			<template if:true={employees}>
+				<lightning-layout multiple-rows="true" pull-to-boundary="small">
+					<template for:each={employees} for:item="employee">
+						<lightning-layout-item key={employee.Id} size="4" class="slds-p-around_x-small">
+							<!-- Start bear tile -->
+							<lightning-card variant="Narrow" title={employee.Name} icon-name="action:new_contact">
+								<div class="slds-p-horizontal_small">
+									<div class="slds-media"></div>
+										<!--<div class="slds-media__figure">-->
+										<!--	<img src={appResources.bearSilhouette} alt="Bear profile" class="bear-silhouette"/>-->
+										<!--</div>-->
+										<div class="slds-media__body">
+											<p class="slds-m-bottom_xx-small">{employee.Emp_email__c}</p>
+											<p class="slds-m-bottom_xx-small"><b>Experience--></b>{employee.Experience__c} years</p>
+											<p class="slds-m-bottom_xx-small">{employee.Name} is primarily skilled in {employee.Primary_Skill__c} </p>
+											<!--<p class="slds-m-bottom_xx-small">{bear.Weight__c} Kg</p>-->
+										</div>
+									
+								</div>
+							</lightning-card>
+							<!-- End employee tile -->
+						</lightning-layout-item>
+					</template>
+				</lightning-layout>
+			</template>
+			<!-- End bear list -->
+			<!-- Data failed to load -->
+			<template if:true={error}>
+				<div class="slds-text-color_error">
+					An error occurred while loading the employee list
+				</div>
+			</template>
+		</div>
+	</lightning-card>
+</template>

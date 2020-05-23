@@ -1,0 +1,40 @@
+<template>
+	<lightning-card title="Certification Requests" icon-name="standard:individual">
+		<div class="slds-card__body_inner">
+			<!-- Start bear list -->
+			<template if:true={requests}>
+				<lightning-layout multiple-rows="true" pull-to-boundary="small">
+					<template for:each={requests} for:item="request">
+						<lightning-layout-item key={request.Id} size="4" class="slds-p-around_x-small">
+							<!-- Start bear tile -->
+							<lightning-card variant="Narrow" title={request.Name} icon-name="standard:entitlement_policy">
+								<div class="slds-p-horizontal_small">
+									<div class="slds-media"></div>
+										<!--<div class="slds-media__figure">-->
+										<!--	<img src={appResources.bearSilhouette} alt="Bear profile" class="bear-silhouette"/>-->
+										<!--</div>-->
+										<div class="slds-media__body">
+											<p class="slds-m-bottom_xx-small">{request.Certification__c.Name}</p>
+											<p class="slds-m-bottom_xx-small">{request.Employee__c.Name} </p>
+                                            <p class="slds-m-bottom_xx-small">The Due date is {request.	Due_Date__c}</p>
+                                            <p class="slds-m-bottom_xx-small">Status for the certification is <b>{request.Status__c}</b> </p>
+											<!--<p class="slds-m-bottom_xx-small">{bear.Weight__c} Kg</p>-->
+										</div>
+									
+								</div>
+							</lightning-card>
+							<!-- End request tile -->
+						</lightning-layout-item>
+					</template>
+				</lightning-layout>
+			</template>
+			<!-- End bear list -->
+			<!-- Data failed to load -->
+			<template if:true={error}>
+				<div class="slds-text-color_error">
+					An error occurred while loading the request list
+				</div>
+			</template>
+		</div>
+	</lightning-card>
+</template>

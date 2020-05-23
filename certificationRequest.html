@@ -1,0 +1,21 @@
+<template>
+  <!--  <lightning-button label="Edit" onclick={navigateToRecordEditPage}></lightning-button>-->
+  <lightning-card> 
+  <lightning-record-view-form
+    record-id={recordId}
+    object-api-name={objectApiName}
+    columns="2"
+    mode="view">
+    <div class="slds-box slds-theme_default">
+    <lightning-output-field class field-name="Employee__c"> </lightning-output-field>
+    <lightning-output-field class field-name="Name"> </lightning-output-field>
+    <lightning-output-field class field-name="Comments__c"> </lightning-output-field>
+    <lightning-output-field class field-name="Due_Date__c"> </lightning-output-field>
+    <lightning-output-field class field-name="Certification__c"> </lightning-output-field>
+    <lightning-output-field class field-name="Status__c"> </lightning-output-field>
+
+
+</div>
+</lightning-record-view-form>
+</lightning-card> 
+</template>

@@ -1,0 +1,14 @@
+<template>
+    <!--<lightning-button label="Edit" onclick={navigateToRecordEditPage}></lightning-button>-->
+    <lightning-record-view-form
+    record-id={recordId}
+    object-api-name={objectApiName}
+    columns="1"
+    mode="view">
+    <div class="slds-box slds-theme_default">
+    <lightning-output-field class field-name="Cert_Id__c"> </lightning-output-field>
+    <lightning-output-field class field-name="Name"> </lightning-output-field>
+    <lightning-output-field class field-name="Comments__c"> </lightning-output-field>
+</div>
+</lightning-record-view-form>
+</template>

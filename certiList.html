@@ -1,0 +1,37 @@
+<template>
+	<lightning-card title="Certificates" icon-name="standard:education">
+		<div class="slds-card__body_inner">
+			
+			<template if:true={certificates}>
+				<lightning-layout multiple-rows="true" pull-to-boundary="small">
+					<template for:each={certificates} for:item="certificate">
+						<lightning-layout-item key={certificate.Id} size="4" class="slds-p-around_x-small">
+						
+							<lightning-card variant="Narrow" title={certificate.Cert_Id__c} icon-name="standard:reward">
+								<div class="slds-p-horizontal_small">
+									<div class="slds-media"></div>
+										
+										<div class="slds-media__body">
+											<p class="slds-m-bottom_xx-small">{certificate.Name}</p>
+											<p class="slds-m-bottom_xx-small"><b>Comments--></b>{certificate.Comments__c} </p>
+											
+											
+										</div>
+									
+								</div>
+							</lightning-card>
+							<!-- End certificate tile -->
+						</lightning-layout-item>
+					</template>
+				</lightning-layout>
+			</template>
+			<!-- End certificate list -->
+			<!-- Data failed to load -->
+			<template if:true={error}>
+				<div class="slds-text-color_error">
+					An error occurred while loading the certificate list
+				</div>
+			</template>
+		</div>
+	</lightning-card>
+</template>
